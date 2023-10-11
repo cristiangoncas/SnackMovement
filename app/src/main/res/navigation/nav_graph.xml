@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentMain">
+
+    <fragment
+        android:id="@+id/fragmentMain"
+        android:name="com.cristiangoncas.snackmovement.FragmentMain"
+        android:label="FragmentMain" >
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentStatistics"
+            app:destination="@id/fragmentStatistics" />
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentChallenges"
+            app:destination="@id/fragmentChallenges" />
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentGroups"
+            app:destination="@id/fragmentGroups" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentStatistics"
+        android:name="com.cristiangoncas.snackmovement.FragmentStatistics"
+        android:label="FragmentStatistics" />
+    <fragment
+        android:id="@+id/fragmentChallenges"
+        android:name="com.cristiangoncas.snackmovement.FragmentChallenges"
+        android:label="FragmentChallenges" />
+    <fragment
+        android:id="@+id/fragmentGroups"
+        android:name="com.cristiangoncas.snackmovement.FragmentGroups"
+        android:label="FragmentGroups" >
+        <action
+            android:id="@+id/action_fragmentGroups_to_fragmentGroupStatistics"
+            app:destination="@id/fragmentGroupStatistics" />
+        <action
+            android:id="@+id/action_fragmentGroups_to_fragmentGroupDetails"
+            app:destination="@id/fragmentGroupDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentGroupStatistics"
+        android:name="com.cristiangoncas.snackmovement.FragmentGroupStatistics"
+        android:label="FragmentGroupStatistics" >
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentGroupDetails"
+        android:name="com.cristiangoncas.snackmovement.FragmentGroupDetails"
+        android:label="FragmentGroupDetails" >
+    </fragment>
+</navigation>
