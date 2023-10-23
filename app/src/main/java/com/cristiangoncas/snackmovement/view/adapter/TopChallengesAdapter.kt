@@ -1,0 +1,70 @@
+package com.cristiangoncas.snackmovement.view.adapter
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
+import com.cristiangoncas.snackmovement.R
+import com.cristiangoncas.snackmovement.databinding.ViewholderTopChallengeBinding
+import com.cristiangoncas.snackmovement.model.Challenge
+
+class TopChallengesAdapter : RecyclerView.Adapter<TopChallengesAdapter.ChallengesViewHolder>() {
+
+    private var items: ArrayList<Challenge> = ArrayList()
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChallengesViewHolder {
+        return ChallengesViewHolder(ViewholderTopChallengeBinding.inflate(LayoutInflater.from(parent.context)))
+    }
+
+    override fun getItemCount(): Int {
+        return items.size
+    }
+
+    override fun onBindViewHolder(holder: ChallengesViewHolder, position: Int) {
+        if (position < items.size) {
+            val challenge = items[position]
+            holder.bind(challenge)
+        }
+    }
+
+    fun updateList(challenges: ArrayList<Challenge>) {
+        val diffCallback = ChallengesDiffCallback(this.items, challenges)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+
+        this.items.clear()
+        this.items.addAll(challenges)
+
+        diffResult.dispatchUpdatesTo(this)
+    }
+
+    inner class ChallengesViewHolder(private val binding: ViewholderTopChallengeBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(challenge: Challenge) {
+            binding.name.text = challenge.name
+            binding.icon.setImageResource(R.mipmap.ic_launcher)
+        }
+    }
+
+    inner class ChallengesDiffCallback(
+        private val mOldList: ArrayList<Challenge>,
+        private val mNewList: ArrayList<Challenge>,
+    ) : DiffUtil.Callback() {
+
+        override fun getOldListSize() = mOldList.size
+
+        override fun getNewListSize() = mNewList.size
+
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            // Add a unique ID property on Challenge and expose a getId() method
+            return mOldList[oldItemPosition].id == mNewList[newItemPosition].id
+        }
+
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            val oldChallenge = mOldList[oldItemPosition]
+            val newChallenge = mNewList[newItemPosition]
+
+            return oldChallenge.id == newChallenge.id && oldChallenge.name == newChallenge.name
+        }
+    }
+}

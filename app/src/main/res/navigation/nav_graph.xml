@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragmentMain"
-        android:name="com.cristiangoncas.snackmovement.FragmentMain"
+        android:name="com.cristiangoncas.snackmovement.view.fragment.FragmentHome"
         android:label="FragmentMain" >
         <action
             android:id="@+id/action_fragmentMain_to_fragmentStatistics"
@@ -20,15 +20,15 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentStatistics"
-        android:name="com.cristiangoncas.snackmovement.FragmentStatistics"
+        android:name="com.cristiangoncas.snackmovement.view.fragment.FragmentStatistics"
         android:label="FragmentStatistics" />
     <fragment
         android:id="@+id/fragmentChallenges"
-        android:name="com.cristiangoncas.snackmovement.FragmentChallenges"
+        android:name="com.cristiangoncas.snackmovement.view.fragment.FragmentChallenges"
         android:label="FragmentChallenges" />
     <fragment
         android:id="@+id/fragmentGroups"
-        android:name="com.cristiangoncas.snackmovement.FragmentGroups"
+        android:name="com.cristiangoncas.snackmovement.view.fragment.FragmentGroups"
         android:label="FragmentGroups" >
         <action
             android:id="@+id/action_fragmentGroups_to_fragmentGroupStatistics"
@@ -39,12 +39,12 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentGroupStatistics"
-        android:name="com.cristiangoncas.snackmovement.FragmentGroupStatistics"
+        android:name="com.cristiangoncas.snackmovement.view.fragment.FragmentGroupStatistics"
         android:label="FragmentGroupStatistics" >
     </fragment>
     <fragment
         android:id="@+id/fragmentGroupDetails"
-        android:name="com.cristiangoncas.snackmovement.FragmentGroupDetails"
+        android:name="com.cristiangoncas.snackmovement.view.fragment.FragmentGroupDetails"
         android:label="FragmentGroupDetails" >
     </fragment>
 </navigation>
