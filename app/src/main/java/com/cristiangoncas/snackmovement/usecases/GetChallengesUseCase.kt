@@ -1,47 +1,23 @@
 package com.cristiangoncas.snackmovement.usecases
 
-import com.cristiangoncas.snackmovement.model.ChallengeItem
-import com.cristiangoncas.snackmovement.model.DIFFICULTY
+import com.cristiangoncas.snackmovement.model.models.Challenge
+import com.cristiangoncas.snackmovement.model.models.DIFFICULTY
+import com.cristiangoncas.snackmovement.model.repository.ChallengeRepository
+import kotlinx.coroutines.flow.Flow
 
 interface GetChallengesUseCase {
-    operator fun invoke(difficulty: DIFFICULTY? = null): ArrayList<ChallengeItem>
+    operator fun invoke(difficulty: DIFFICULTY? = null): Flow<ArrayList<Challenge>>
 }
 
-class GetChallengesUseCaseImpl : GetChallengesUseCase {
+class GetChallengesUseCaseImpl(
+    private val challengeRepository: ChallengeRepository,
+) : GetChallengesUseCase {
 
-    override fun invoke(difficulty: DIFFICULTY?): ArrayList<ChallengeItem> {
+    override fun invoke(difficulty: DIFFICULTY?): Flow<ArrayList<Challenge>> {
         if (difficulty != null) {
-            return when (difficulty) {
-                DIFFICULTY.BEGINNERS -> {
-                    arrayListOf(
-                        ChallengeItem(0, 101, "Push-up", DIFFICULTY.BEGINNERS),
-                        ChallengeItem(3, 101, "Squat", DIFFICULTY.BEGINNERS),
-                    )
-                }
-
-                DIFFICULTY.INTERMEDIATE -> {
-                    arrayListOf(
-                        ChallengeItem(1, 101, "Plank", DIFFICULTY.INTERMEDIATE),
-                        ChallengeItem(5, 101, "Wall sit", DIFFICULTY.INTERMEDIATE),
-                    )
-                }
-
-                DIFFICULTY.ADVANCED -> {
-                    arrayListOf(
-                        ChallengeItem(2, 101, "Pull-up", DIFFICULTY.ADVANCED),
-                        ChallengeItem(4, 101, "Burpees", DIFFICULTY.ADVANCED),
-                    )
-                }
-            }
+            return challengeRepository.getAllChallenges()
         } else {
-            return arrayListOf(
-                ChallengeItem(0, 101, "Push-up", DIFFICULTY.BEGINNERS),
-                ChallengeItem(1, 101, "Plank", DIFFICULTY.INTERMEDIATE),
-                ChallengeItem(5, 101, "Wall sit", DIFFICULTY.INTERMEDIATE),
-                ChallengeItem(2, 101, "Pull-up", DIFFICULTY.ADVANCED),
-                ChallengeItem(4, 101, "Burpees", DIFFICULTY.ADVANCED),
-                ChallengeItem(3, 101, "Squat", DIFFICULTY.BEGINNERS),
-            )
+            return challengeRepository.getAllChallenges()
         }
     }
 }

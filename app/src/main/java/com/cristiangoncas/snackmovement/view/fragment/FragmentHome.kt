@@ -5,16 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.cristiangoncas.snackmovement.R
 import com.cristiangoncas.snackmovement.databinding.FragmentHomeBinding
 import com.cristiangoncas.snackmovement.view.adapter.TopChallengesAdapter
 import com.cristiangoncas.snackmovement.view.viewmodel.HomeViewModelImpl
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentHome : Fragment() {
 
-    private val viewModel: HomeViewModelImpl by viewModels()
+    private val viewModel: HomeViewModelImpl by viewModel()
+
     private val adapter: TopChallengesAdapter = TopChallengesAdapter()
     private lateinit var binding: FragmentHomeBinding
     override fun onCreateView(
@@ -30,7 +31,6 @@ class FragmentHome : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.statistics.setOnClickListener { findNavController().navigate(R.id.action_fragmentMain_to_fragmentStatistics) }
         binding.challenges.setOnClickListener { findNavController().navigate(R.id.action_fragmentMain_to_fragmentChallenges) }
-        binding.groups.setOnClickListener { findNavController().navigate(R.id.action_fragmentMain_to_fragmentGroups) }
         binding.topList.adapter = adapter
 
         viewModel.viewState().observe(

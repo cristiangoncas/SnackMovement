@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt") version "1.9.10"
 }
 
 android {
@@ -46,6 +47,8 @@ dependencies {
     val constraintlayoutVersion = "2.1.4"
     val navVersion = "2.7.3"
     val safeArgsVersion = "2.7.3"
+    val roomVersion = "2.4.2"
+    val koinAndroidVersion = "3.5.0"
 
     implementation("androidx.core:core-ktx:$coreKtxVersion")
     implementation("androidx.appcompat:appcompat:$appcompatVersion")
@@ -53,7 +56,12 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:$constraintlayoutVersion")
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
-//    implementation("androidx.navigation:navigation-safe-args-gradle-plugin:$safeArgsVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("io.insert-koin:koin-android:$koinAndroidVersion")
+    implementation("io.insert-koin:koin-androidx-navigation:$koinAndroidVersion")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 
     val jUnitVersion = "4.13.2"
     val extJUnitVestion = "1.1.5"

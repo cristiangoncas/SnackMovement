@@ -1,7 +1,7 @@
 package com.cristiangoncas.snackmovement.view.state
 
-import com.cristiangoncas.snackmovement.model.ChallengeItem
+import com.cristiangoncas.snackmovement.model.models.Challenge
 
 class ChallengesViewState {
-    var challenges: ArrayList<ChallengeItem> = arrayListOf()
+    var challenges: ArrayList<Challenge> = arrayListOf()
 }

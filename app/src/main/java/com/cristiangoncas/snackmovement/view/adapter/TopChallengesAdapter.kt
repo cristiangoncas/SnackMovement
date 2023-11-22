@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.cristiangoncas.snackmovement.R
 import com.cristiangoncas.snackmovement.databinding.ViewholderTopChallengeBinding
-import com.cristiangoncas.snackmovement.model.Challenge
+import com.cristiangoncas.snackmovement.model.models.Challenge
 
 class TopChallengesAdapter : RecyclerView.Adapter<TopChallengesAdapter.ChallengesViewHolder>() {
 

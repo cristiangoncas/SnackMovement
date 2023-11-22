@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.navigation.fragment.findNavController
 import com.cristiangoncas.snackmovement.databinding.FragmentChallengesBinding
 import com.cristiangoncas.snackmovement.view.adapter.ChallengesAdapter
@@ -13,7 +13,7 @@ import com.cristiangoncas.snackmovement.view.viewmodel.ChallengesViewModelImpl
 
 class FragmentChallenges : Fragment() {
 
-    private val viewModel: ChallengesViewModelImpl by viewModels()
+    private val viewModel: ChallengesViewModelImpl by viewModel()
     private val adapter: ChallengesAdapter = ChallengesAdapter()
     private lateinit var binding: FragmentChallengesBinding
 
@@ -35,6 +35,7 @@ class FragmentChallenges : Fragment() {
         viewModel.viewState().observe(
             viewLifecycleOwner,
         ) { state ->
+            println("Count: ${state.challenges.size}")
             adapter.updateList(state.challenges)
         }
     }

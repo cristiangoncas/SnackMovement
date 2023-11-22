@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.cristiangoncas.snackmovement.R
 import com.cristiangoncas.snackmovement.databinding.ViewholderChallengeItemBinding
-import com.cristiangoncas.snackmovement.model.ChallengeItem
+import com.cristiangoncas.snackmovement.model.models.Challenge
 
 class ChallengesAdapter : RecyclerView.Adapter<ChallengesAdapter.ChallengeItemViewHolder>() {
 
-    private var items: ArrayList<ChallengeItem> = ArrayList()
+    private var items: ArrayList<Challenge> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChallengeItemViewHolder {
         return ChallengeItemViewHolder(
@@ -30,8 +30,8 @@ class ChallengesAdapter : RecyclerView.Adapter<ChallengesAdapter.ChallengeItemVi
 
     override fun getItemCount() = items.size
 
-    fun updateList(challenges: List<ChallengeItem>) {
-        val diffCallback = ChallengeItemDiffCallback(this.items, items)
+    fun updateList(challenges: List<Challenge>) {
+        val diffCallback = ChallengeItemDiffCallback(this.items, challenges as ArrayList<Challenge>)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
 
         this.items.clear()
@@ -43,15 +43,15 @@ class ChallengesAdapter : RecyclerView.Adapter<ChallengesAdapter.ChallengeItemVi
     inner class ChallengeItemViewHolder(private val binding: ViewholderChallengeItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(challenge: ChallengeItem) {
-            binding.label.text = challenge.label
+        fun bind(challenge: Challenge) {
+            binding.label.text = challenge.name
             binding.image.setImageResource(R.mipmap.ic_launcher)
         }
     }
 
     inner class ChallengeItemDiffCallback(
-        private val mOldList: ArrayList<ChallengeItem>,
-        private val mNewList: ArrayList<ChallengeItem>,
+        private val mOldList: ArrayList<Challenge>,
+        private val mNewList: ArrayList<Challenge>,
     ) : DiffUtil.Callback() {
 
         override fun getOldListSize() = mOldList.size
@@ -68,7 +68,7 @@ class ChallengesAdapter : RecyclerView.Adapter<ChallengesAdapter.ChallengeItemVi
             val newChallenge = mNewList[newItemPosition]
 
             return oldChallenge.id == newChallenge.id &&
-                oldChallenge.label == newChallenge.label &&
+                oldChallenge.name == newChallenge.name &&
                 oldChallenge.difficulty == newChallenge.difficulty
         }
     }

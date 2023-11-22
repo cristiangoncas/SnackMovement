@@ -1,6 +1,6 @@
 package com.cristiangoncas.snackmovement.view.state
 
-import com.cristiangoncas.snackmovement.model.Challenge
+import com.cristiangoncas.snackmovement.model.models.Challenge
 
 class HomeViewState {
     var todaySnackCount: Int = 0
