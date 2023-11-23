@@ -1,23 +1,23 @@
 package com.cristiangoncas.snackmovement.usecases
 
-import com.cristiangoncas.snackmovement.model.models.Challenge
+import com.cristiangoncas.snackmovement.model.models.Movement
 import com.cristiangoncas.snackmovement.model.models.DIFFICULTY
-import com.cristiangoncas.snackmovement.model.repository.ChallengeRepository
+import com.cristiangoncas.snackmovement.model.repository.MovementRepository
 import kotlinx.coroutines.flow.Flow
 
 interface GetChallengesUseCase {
-    operator fun invoke(difficulty: DIFFICULTY? = null): Flow<ArrayList<Challenge>>
+    operator fun invoke(difficulty: DIFFICULTY? = null): Flow<ArrayList<Movement>>
 }
 
 class GetChallengesUseCaseImpl(
-    private val challengeRepository: ChallengeRepository,
+    private val movementRepository: MovementRepository,
 ) : GetChallengesUseCase {
 
-    override fun invoke(difficulty: DIFFICULTY?): Flow<ArrayList<Challenge>> {
+    override fun invoke(difficulty: DIFFICULTY?): Flow<ArrayList<Movement>> {
         if (difficulty != null) {
-            return challengeRepository.getAllChallenges()
+            return movementRepository.getAllMovement()
         } else {
-            return challengeRepository.getAllChallenges()
+            return movementRepository.getAllMovement()
         }
     }
 }

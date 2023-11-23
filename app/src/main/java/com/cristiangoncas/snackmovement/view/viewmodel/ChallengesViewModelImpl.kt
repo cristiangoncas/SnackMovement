@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cristiangoncas.snackmovement.model.models.DIFFICULTY
 import com.cristiangoncas.snackmovement.model.repository.local.AppDatabase
-import com.cristiangoncas.snackmovement.model.repository.local.entity.Challenge
+import com.cristiangoncas.snackmovement.model.repository.local.entity.Movement
 import com.cristiangoncas.snackmovement.usecases.GetChallengesUseCase
 import com.cristiangoncas.snackmovement.view.state.ChallengesViewState
 import kotlinx.coroutines.GlobalScope
@@ -34,7 +34,7 @@ class ChallengesViewModelImpl(
         viewModelScope.launch {
             getChallengesUseCase.invoke().collect { challenges ->
                 viewStateLiveData.value?.let { viewState ->
-                    viewState.challenges = challenges
+                    viewState.movements = challenges
                     viewStateLiveData.postValue(viewState)
                 }
             }
@@ -43,7 +43,7 @@ class ChallengesViewModelImpl(
 
     suspend fun populateDb() {
         db.challengeDao().insertChallenge(
-            Challenge(
+            Movement(
                 id = 0,
                 imageId = "imageId",
                 name = "Squat",
@@ -53,7 +53,7 @@ class ChallengesViewModelImpl(
         )
         delay(500)
         db.challengeDao().insertChallenge(
-            Challenge(
+            Movement(
                 id = 1,
                 imageId = "",
                 name = "Push up",
@@ -63,7 +63,7 @@ class ChallengesViewModelImpl(
         )
         delay(500)
         db.challengeDao().insertChallenge(
-            Challenge(
+            Movement(
                 id = 2,
                 imageId = "",
                 name = "Glute bridge",
@@ -73,7 +73,7 @@ class ChallengesViewModelImpl(
         )
         delay(500)
         db.challengeDao().insertChallenge(
-            Challenge(
+            Movement(
                 id = 3,
                 imageId = "",
                 name = "Heel-raise",
@@ -83,7 +83,7 @@ class ChallengesViewModelImpl(
         )
         delay(500)
         db.challengeDao().insertChallenge(
-            Challenge(
+            Movement(
                 id = 4,
                 imageId = "",
                 name = "Burpee",
@@ -93,7 +93,7 @@ class ChallengesViewModelImpl(
         )
         delay(500)
         db.challengeDao().insertChallenge(
-            Challenge(
+            Movement(
                 id = 5,
                 imageId = "",
                 name = "Mountain climbers",
@@ -103,7 +103,7 @@ class ChallengesViewModelImpl(
         )
         delay(500)
         db.challengeDao().insertChallenge(
-            Challenge(
+            Movement(
                 id = 6,
                 imageId = "",
                 name = "Plank",
@@ -113,7 +113,7 @@ class ChallengesViewModelImpl(
         )
         delay(500)
         db.challengeDao().insertChallenge(
-            Challenge(
+            Movement(
                 id = 7,
                 imageId = "",
                 name = "Wall sit",
@@ -123,7 +123,7 @@ class ChallengesViewModelImpl(
         )
         delay(500)
         db.challengeDao().insertChallenge(
-            Challenge(
+            Movement(
                 id = 8,
                 imageId = "",
                 name = "Kettlebell swings",
@@ -133,7 +133,7 @@ class ChallengesViewModelImpl(
         )
         delay(500)
         db.challengeDao().insertChallenge(
-            Challenge(
+            Movement(
                 id = 9,
                 imageId = "",
                 name = "Bulgarian split squat",
@@ -143,7 +143,7 @@ class ChallengesViewModelImpl(
         )
         delay(500)
         db.challengeDao().insertChallenge(
-            Challenge(
+            Movement(
                 id = 10,
                 imageId = "",
                 name = "Pistol squat",
@@ -153,7 +153,7 @@ class ChallengesViewModelImpl(
         )
         delay(500)
         db.challengeDao().insertChallenge(
-            Challenge(
+            Movement(
                 id = 11,
                 imageId = "",
                 name = "Pull ups",

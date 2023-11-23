@@ -35,8 +35,8 @@ class FragmentChallenges : Fragment() {
         viewModel.viewState().observe(
             viewLifecycleOwner,
         ) { state ->
-            println("Count: ${state.challenges.size}")
-            adapter.updateList(state.challenges)
+            println("Count: ${state.movements.size}")
+            adapter.updateList(state.movements)
         }
     }
 }
