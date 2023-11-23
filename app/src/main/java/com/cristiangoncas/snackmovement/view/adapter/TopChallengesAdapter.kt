@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.cristiangoncas.snackmovement.R
 import com.cristiangoncas.snackmovement.databinding.ViewholderTopChallengeBinding
-import com.cristiangoncas.snackmovement.model.models.Challenge
+import com.cristiangoncas.snackmovement.model.models.Movement
 
 class TopChallengesAdapter : RecyclerView.Adapter<TopChallengesAdapter.ChallengesViewHolder>() {
 
-    private var items: ArrayList<Challenge> = ArrayList()
+    private var items: ArrayList<Movement> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChallengesViewHolder {
         return ChallengesViewHolder(ViewholderTopChallengeBinding.inflate(LayoutInflater.from(parent.context)))
@@ -27,12 +27,12 @@ class TopChallengesAdapter : RecyclerView.Adapter<TopChallengesAdapter.Challenge
         }
     }
 
-    fun updateList(challenges: ArrayList<Challenge>) {
-        val diffCallback = ChallengesDiffCallback(this.items, challenges)
+    fun updateList(movements: ArrayList<Movement>) {
+        val diffCallback = ChallengesDiffCallback(this.items, movements)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
 
         this.items.clear()
-        this.items.addAll(challenges)
+        this.items.addAll(movements)
 
         diffResult.dispatchUpdatesTo(this)
     }
@@ -40,15 +40,15 @@ class TopChallengesAdapter : RecyclerView.Adapter<TopChallengesAdapter.Challenge
     inner class ChallengesViewHolder(private val binding: ViewholderTopChallengeBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(challenge: Challenge) {
-            binding.name.text = challenge.name
+        fun bind(movement: Movement) {
+            binding.name.text = movement.name
             binding.icon.setImageResource(R.mipmap.ic_launcher)
         }
     }
 
     inner class ChallengesDiffCallback(
-        private val mOldList: ArrayList<Challenge>,
-        private val mNewList: ArrayList<Challenge>,
+        private val mOldList: ArrayList<Movement>,
+        private val mNewList: ArrayList<Movement>,
     ) : DiffUtil.Callback() {
 
         override fun getOldListSize() = mOldList.size

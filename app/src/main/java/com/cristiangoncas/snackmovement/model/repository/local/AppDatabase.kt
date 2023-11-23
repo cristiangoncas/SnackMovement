@@ -4,13 +4,17 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.cristiangoncas.snackmovement.model.repository.local.entity.Challenge
-import com.cristiangoncas.snackmovement.model.repository.local.queries.ChallengeDao
+import com.cristiangoncas.snackmovement.model.repository.local.entity.Movement
+import com.cristiangoncas.snackmovement.model.repository.local.entity.SnackLog
+import com.cristiangoncas.snackmovement.model.repository.local.queries.MovementDao
+import com.cristiangoncas.snackmovement.model.repository.local.queries.SnacksLogDao
 
-@Database(entities = [Challenge::class], version = 1)
+@Database(entities = [Movement::class, SnackLog::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun challengeDao(): ChallengeDao
+    abstract fun challengeDao(): MovementDao
+
+    abstract fun snackLogDao(): SnacksLogDao
 
     companion object {
 
