@@ -195,7 +195,7 @@
                 app:layout_constraintStart_toStartOf="@id/top_label"
                 app:layout_constraintTop_toBottomOf="@id/top_label"
                 tools:itemCount="5"
-                tools:listitem="@layout/viewholder_top_challenge" />
+                tools:listitem="@layout/viewholder_top_movement" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

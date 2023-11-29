@@ -12,15 +12,37 @@
             android:id="@+id/action_fragmentMain_to_fragmentStatistics"
             app:destination="@id/fragmentStatistics" />
         <action
-            android:id="@+id/action_fragmentMain_to_fragmentChallenges"
-            app:destination="@id/fragmentChallenges" />
+            android:id="@+id/action_fragmentMain_to_fragmentMovements"
+            app:destination="@id/fragmentMovements" />
     </fragment>
     <fragment
         android:id="@+id/fragmentStatistics"
         android:name="com.cristiangoncas.snackmovement.view.fragment.FragmentStatistics"
         android:label="FragmentStatistics" />
     <fragment
-        android:id="@+id/fragmentChallenges"
-        android:name="com.cristiangoncas.snackmovement.view.fragment.FragmentChallenges"
-        android:label="FragmentChallenges" />
+        android:id="@+id/fragmentMovements"
+        android:name="com.cristiangoncas.snackmovement.view.fragment.FragmentMovement"
+        android:label="FragmentMovements">
+        <argument
+            android:name="startingSnack"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_fragmentMovements_to_fragmentMovementDetail"
+            app:destination="@id/fragmentMovementDetail">
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentMovementDetail"
+        android:name="com.cristiangoncas.snackmovement.view.fragment.FragmentMovementDetail"
+        android:label="FragmentMovementDetail">
+        <argument
+            android:name="startingSnack"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="movementId"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </fragment>
 </navigation>

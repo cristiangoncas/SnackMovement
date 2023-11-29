@@ -10,6 +10,8 @@ interface MovementRepository {
     fun getAllMovement(): Flow<ArrayList<Movement>>
 
     fun getMovementsByDifficulty(difficulty: Movement.DIFFICULTY): Flow<ArrayList<Movement>>
+
+    fun getMovementById(movenentId: Int): Flow<Movement>
 }
 
 class MovementRepositoryImpl(
@@ -21,11 +23,11 @@ class MovementRepositoryImpl(
                 val movementList = ArrayList<Movement>(movements.size)
                 movements.mapTo(movementList) { movement ->
                     Movement(
-                        movement.id,
-                        movement.imageId,
-                        movement.name,
-                        movement.description,
-                        Movement.difficultyFromInt(movement.difficulty),
+                        id = movement.id,
+                        imageId = movement.imageId,
+                        name = movement.name,
+                        description = movement.description,
+                        difficulty = Movement.difficultyFromInt(movement.difficulty),
                     )
                 }
                 movementList
@@ -38,14 +40,27 @@ class MovementRepositoryImpl(
                 val movementList = ArrayList<Movement>(movements.size)
                 movements.mapTo(movementList) { movement ->
                     Movement(
-                        movement.id,
-                        movement.imageId,
-                        movement.name,
-                        movement.description,
-                        Movement.difficultyFromInt(movement.difficulty),
+                        id = movement.id,
+                        imageId = movement.imageId,
+                        name = movement.name,
+                        description = movement.description,
+                        difficulty = Movement.difficultyFromInt(movement.difficulty),
                     )
                 }
                 movementList
+            }
+    }
+
+    override fun getMovementById(movenentId: Int): Flow<Movement> {
+        return movementDao.getMovementById(movenentId)
+            .map { movement ->
+                Movement(
+                    id = movement.id,
+                    imageId = movement.imageId,
+                    name = movement.name,
+                    description = movement.description,
+                    difficulty = Movement.difficultyFromInt(movement.difficulty),
+                )
             }
     }
 }

@@ -30,7 +30,7 @@ class FragmentHome : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.statistics.setOnClickListener { findNavController().navigate(R.id.action_fragmentMain_to_fragmentStatistics) }
-        binding.challenges.setOnClickListener { findNavController().navigate(R.id.action_fragmentMain_to_fragmentChallenges) }
+        binding.challenges.setOnClickListener { findNavController().navigate(R.id.action_fragmentMain_to_fragmentMovements) }
         binding.topList.adapter = adapter
 
         viewModel.viewState().observe(

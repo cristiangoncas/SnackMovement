@@ -12,7 +12,7 @@ val databaseModule = module {
 
     single {
         val db: AppDatabase = get()
-        db.challengeDao()
+        db.movementDao()
     }
 
     single<MovementRepository> {

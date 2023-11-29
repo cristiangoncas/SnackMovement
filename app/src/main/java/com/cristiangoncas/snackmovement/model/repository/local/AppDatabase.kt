@@ -12,7 +12,7 @@ import com.cristiangoncas.snackmovement.model.repository.local.queries.SnacksLog
 @Database(entities = [Movement::class, SnackLog::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun challengeDao(): MovementDao
+    abstract fun movementDao(): MovementDao
 
     abstract fun snackLogDao(): SnacksLogDao
 

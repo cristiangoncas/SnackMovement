@@ -30,7 +30,10 @@ data class Movement(
         }
     }
 
-    enum class DIFFICULTY(val value: Int) {
-        UNDEFINED(0), BEGINNERS(1), INTERMEDIATE(2), ADVANCED(3),
+    enum class DIFFICULTY(val value: Int, val stringValue: String) {
+        UNDEFINED(0, "Undefined"),
+        BEGINNERS(1, "Beginners"),
+        INTERMEDIATE(2, "Intermediate"),
+        ADVANCED(3, "Advanced"),
     }
 }
