@@ -5,22 +5,22 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.cristiangoncas.snackmovement.R
-import com.cristiangoncas.snackmovement.databinding.ViewholderTopChallengeBinding
+import com.cristiangoncas.snackmovement.databinding.ViewholderTopMovementBinding
 import com.cristiangoncas.snackmovement.model.models.Movement
 
-class TopChallengesAdapter : RecyclerView.Adapter<TopChallengesAdapter.ChallengesViewHolder>() {
+class TopChallengesAdapter : RecyclerView.Adapter<TopChallengesAdapter.MovementsViewHolder>() {
 
     private var items: ArrayList<Movement> = ArrayList()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChallengesViewHolder {
-        return ChallengesViewHolder(ViewholderTopChallengeBinding.inflate(LayoutInflater.from(parent.context)))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovementsViewHolder {
+        return MovementsViewHolder(ViewholderTopMovementBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
 
-    override fun onBindViewHolder(holder: ChallengesViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MovementsViewHolder, position: Int) {
         if (position < items.size) {
             val challenge = items[position]
             holder.bind(challenge)
@@ -37,7 +37,7 @@ class TopChallengesAdapter : RecyclerView.Adapter<TopChallengesAdapter.Challenge
         diffResult.dispatchUpdatesTo(this)
     }
 
-    inner class ChallengesViewHolder(private val binding: ViewholderTopChallengeBinding) :
+    inner class MovementsViewHolder(private val binding: ViewholderTopMovementBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movement: Movement) {

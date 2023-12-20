@@ -10,8 +10,11 @@ data class Movement(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     @NonNull
-    @ColumnInfo(name = "image_id")
-    val imageId: String,
+    @ColumnInfo(name = "icon_id")
+    val iconId: String,
+    @NonNull
+    @ColumnInfo(name = "resource_id")
+    val resourceId: String,
     @NonNull
     @ColumnInfo(name = "name")
     val name: String,

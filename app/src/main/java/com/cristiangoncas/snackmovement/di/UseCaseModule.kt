@@ -2,12 +2,12 @@ package com.cristiangoncas.snackmovement.di
 
 import com.cristiangoncas.snackmovement.usecases.GetAvgSnacksPerPeriodUseCase
 import com.cristiangoncas.snackmovement.usecases.GetAvgSnacksPerPeriodUseCaseImpl
-import com.cristiangoncas.snackmovement.usecases.GetChallengeDetailsUseCase
-import com.cristiangoncas.snackmovement.usecases.GetChallengeDetailsUseCaseImpl
-import com.cristiangoncas.snackmovement.usecases.GetChallengesUseCase
-import com.cristiangoncas.snackmovement.usecases.GetChallengesUseCaseImpl
 import com.cristiangoncas.snackmovement.usecases.GetGoalUseCase
 import com.cristiangoncas.snackmovement.usecases.GetGoalUseCaseImpl
+import com.cristiangoncas.snackmovement.usecases.GetMovementDetailsUseCase
+import com.cristiangoncas.snackmovement.usecases.GetMovementDetailsUseCaseImpl
+import com.cristiangoncas.snackmovement.usecases.GetMovementsUseCase
+import com.cristiangoncas.snackmovement.usecases.GetMovementsUseCaseImpl
 import com.cristiangoncas.snackmovement.usecases.GetStatisticsUseCase
 import com.cristiangoncas.snackmovement.usecases.GetStatisticsUseCaseImpl
 import com.cristiangoncas.snackmovement.usecases.GetTodaySnacksUseCase
@@ -38,12 +38,12 @@ val useCaseModule = module {
         GetGoalUseCaseImpl()
     }
 
-    factory<GetChallengesUseCase> {
-        GetChallengesUseCaseImpl(get())
+    factory<GetMovementsUseCase> {
+        GetMovementsUseCaseImpl(get())
     }
 
-    factory<GetChallengeDetailsUseCase> {
-        GetChallengeDetailsUseCaseImpl()
+    factory<GetMovementDetailsUseCase> {
+        GetMovementDetailsUseCaseImpl(get())
     }
 
     factory<GetStatisticsUseCase> {

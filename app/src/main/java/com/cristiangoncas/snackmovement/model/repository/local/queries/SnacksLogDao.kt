@@ -3,7 +3,6 @@ package com.cristiangoncas.snackmovement.model.repository.local.queries
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.cristiangoncas.snackmovement.model.models.Snack
 import com.cristiangoncas.snackmovement.model.repository.local.entity.SnackLog
 import kotlinx.coroutines.flow.Flow
 
