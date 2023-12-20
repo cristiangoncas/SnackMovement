@@ -24,7 +24,7 @@ class MovementRepositoryImpl(
                 movements.mapTo(movementList) { movement ->
                     Movement(
                         id = movement.id,
-                        imageId = movement.imageId,
+                        imageId = movement.resourceId,
                         name = movement.name,
                         description = movement.description,
                         difficulty = Movement.difficultyFromInt(movement.difficulty),
@@ -41,7 +41,7 @@ class MovementRepositoryImpl(
                 movements.mapTo(movementList) { movement ->
                     Movement(
                         id = movement.id,
-                        imageId = movement.imageId,
+                        imageId = movement.resourceId,
                         name = movement.name,
                         description = movement.description,
                         difficulty = Movement.difficultyFromInt(movement.difficulty),
@@ -56,7 +56,7 @@ class MovementRepositoryImpl(
             .map { movement ->
                 Movement(
                     id = movement.id,
-                    imageId = movement.imageId,
+                    imageId = movement.resourceId,
                     name = movement.name,
                     description = movement.description,
                     difficulty = Movement.difficultyFromInt(movement.difficulty),

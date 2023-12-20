@@ -45,7 +45,7 @@ class MovementsViewModelImpl(
         db.movementDao().insertMovement(
             MovementEntity(
                 id = 0,
-                imageId = "imageId",
+                resourceId = "imageId",
                 name = "Squat",
                 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 difficulty = Movement.DIFFICULTY.BEGINNERS.value,
@@ -55,7 +55,7 @@ class MovementsViewModelImpl(
         db.movementDao().insertMovement(
             MovementEntity(
                 id = 1,
-                imageId = "",
+                resourceId = "",
                 name = "Push up",
                 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 difficulty = Movement.DIFFICULTY.BEGINNERS.value,
@@ -65,7 +65,7 @@ class MovementsViewModelImpl(
         db.movementDao().insertMovement(
             MovementEntity(
                 id = 2,
-                imageId = "",
+                resourceId = "",
                 name = "Glute bridge",
                 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 difficulty = Movement.DIFFICULTY.BEGINNERS.value,
@@ -75,7 +75,7 @@ class MovementsViewModelImpl(
         db.movementDao().insertMovement(
             MovementEntity(
                 id = 3,
-                imageId = "",
+                resourceId = "",
                 name = "Heel-raise",
                 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 difficulty = Movement.DIFFICULTY.BEGINNERS.value,
@@ -85,7 +85,7 @@ class MovementsViewModelImpl(
         db.movementDao().insertMovement(
             MovementEntity(
                 id = 4,
-                imageId = "",
+                resourceId = "",
                 name = "Burpee",
                 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 difficulty = Movement.DIFFICULTY.INTERMEDIATE.value,
@@ -95,7 +95,7 @@ class MovementsViewModelImpl(
         db.movementDao().insertMovement(
             MovementEntity(
                 id = 5,
-                imageId = "",
+                resourceId = "",
                 name = "Mountain climbers",
                 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 difficulty = Movement.DIFFICULTY.INTERMEDIATE.value,
@@ -105,7 +105,7 @@ class MovementsViewModelImpl(
         db.movementDao().insertMovement(
             MovementEntity(
                 id = 6,
-                imageId = "",
+                resourceId = "",
                 name = "Plank",
                 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 difficulty = Movement.DIFFICULTY.INTERMEDIATE.value,
@@ -115,7 +115,7 @@ class MovementsViewModelImpl(
         db.movementDao().insertMovement(
             MovementEntity(
                 id = 7,
-                imageId = "",
+                resourceId = "",
                 name = "Wall sit",
                 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 difficulty = Movement.DIFFICULTY.INTERMEDIATE.value,
@@ -125,7 +125,7 @@ class MovementsViewModelImpl(
         db.movementDao().insertMovement(
             MovementEntity(
                 id = 8,
-                imageId = "",
+                resourceId = "",
                 name = "Kettlebell swings",
                 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 difficulty = Movement.DIFFICULTY.ADVANCED.value,
@@ -135,7 +135,7 @@ class MovementsViewModelImpl(
         db.movementDao().insertMovement(
             MovementEntity(
                 id = 9,
-                imageId = "",
+                resourceId = "",
                 name = "Bulgarian split squat",
                 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 difficulty = Movement.DIFFICULTY.ADVANCED.value,
@@ -145,7 +145,7 @@ class MovementsViewModelImpl(
         db.movementDao().insertMovement(
             MovementEntity(
                 id = 10,
-                imageId = "",
+                resourceId = "",
                 name = "Pistol squat",
                 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 difficulty = Movement.DIFFICULTY.ADVANCED.value,
@@ -155,7 +155,7 @@ class MovementsViewModelImpl(
         db.movementDao().insertMovement(
             MovementEntity(
                 id = 11,
-                imageId = "",
+                resourceId = "",
                 name = "Pull ups",
                 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 difficulty = Movement.DIFFICULTY.ADVANCED.value,

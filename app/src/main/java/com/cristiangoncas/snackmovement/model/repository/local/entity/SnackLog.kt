@@ -11,7 +11,7 @@ data class SnackLog(
     val id: Int = 0,
     @NonNull
     @ColumnInfo(name = "timestamp")
-    val timestamp: Long,
+    val timestamp: Long, // TODO: Is Long the best choice?
     @NonNull
     @ColumnInfo(name = "movement_id")
     val movementId: Int,
