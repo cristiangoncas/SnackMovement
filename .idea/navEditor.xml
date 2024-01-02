@@ -8,18 +8,18 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="fragmentMain">
+                  <entry key="fragmentHome">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-657" />
-                            <option name="y" value="23" />
+                            <option name="x" value="256" />
+                            <option name="y" value="12" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_fragmentMain_to_fragmentChallenges">
+                            <entry key="action_fragmentMain_to_fragmentMovements">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -43,6 +43,15 @@
                             <option name="y" value="37" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_fragmentMovementDetail_to_fragmentSnackInProgress">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -54,6 +63,36 @@
                             <option name="x" value="-385" />
                             <option name="y" value="36" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_fragmentMovements_to_fragmentMovementDetail">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="fragmentSnackInProgress">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="54" />
+                            <option name="y" value="21" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_fragmentSnackInProgress_to_fragmentHome">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>

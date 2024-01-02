@@ -5,9 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.cristiangoncas.snackmovement.databinding.FragmentMovementDetailBinding
+import com.cristiangoncas.snackmovement.model.models.Snack
 import com.cristiangoncas.snackmovement.view.viewmodel.MovementDetailViewModelImpl
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentMovementDetail : Fragment() {
@@ -34,6 +38,20 @@ class FragmentMovementDetail : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.start.setOnClickListener {
+            val snack: Snack = viewModel.viewState().value?.movement?.let { movement ->
+                Snack(
+                    movementId = movement.id,
+                    movementName = movement.name,
+                    movementDifficulty = movement.difficulty,
+                )
+            } ?: throw Exception("FragmentMovementDetail::ViewState should contain a non null movement.")
+            val action =
+                FragmentMovementDetailDirections.actionFragmentMovementDetailToFragmentSnackInProgress(
+                    snack = Json.encodeToString(snack),
+                )
+            findNavController().navigate(action)
+        }
         viewModel.viewState().observe(
             viewLifecycleOwner,
         ) { state ->

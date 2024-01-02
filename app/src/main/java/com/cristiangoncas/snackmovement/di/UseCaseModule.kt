@@ -2,6 +2,8 @@ package com.cristiangoncas.snackmovement.di
 
 import com.cristiangoncas.snackmovement.usecases.GetAvgSnacksPerPeriodUseCase
 import com.cristiangoncas.snackmovement.usecases.GetAvgSnacksPerPeriodUseCaseImpl
+import com.cristiangoncas.snackmovement.usecases.GetCountDownTimerUseCase
+import com.cristiangoncas.snackmovement.usecases.GetCountDownTimerUseCaseImpl
 import com.cristiangoncas.snackmovement.usecases.GetGoalUseCase
 import com.cristiangoncas.snackmovement.usecases.GetGoalUseCaseImpl
 import com.cristiangoncas.snackmovement.usecases.GetMovementDetailsUseCase
@@ -16,6 +18,8 @@ import com.cristiangoncas.snackmovement.usecases.GetTopChallengesUseCase
 import com.cristiangoncas.snackmovement.usecases.GetTopChallengesUseCaseImpl
 import com.cristiangoncas.snackmovement.usecases.GetYesterdaySnacksUseCase
 import com.cristiangoncas.snackmovement.usecases.GetYesterdaySnacksUseCaseImpl
+import com.cristiangoncas.snackmovement.usecases.RegisterSnackUseCase
+import com.cristiangoncas.snackmovement.usecases.RegisterSnackUseCaseImpl
 import org.koin.dsl.module
 
 val useCaseModule = module {
@@ -48,5 +52,13 @@ val useCaseModule = module {
 
     factory<GetStatisticsUseCase> {
         GetStatisticsUseCaseImpl()
+    }
+
+    factory<GetCountDownTimerUseCase> {
+        GetCountDownTimerUseCaseImpl()
+    }
+
+    factory<RegisterSnackUseCase> {
+        RegisterSnackUseCaseImpl(get())
     }
 }
