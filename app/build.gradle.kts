@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt") version "1.9.10"
     id("androidx.navigation.safeargs.kotlin")
+    kotlin("plugin.serialization")
 }
 
 android {
@@ -63,6 +64,7 @@ dependencies {
     implementation("io.insert-koin:koin-android:$koinAndroidVersion")
     implementation("io.insert-koin:koin-androidx-navigation:$koinAndroidVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
 
     val jUnitVersion = "4.13.2"
     val extJUnitVestion = "1.1.5"

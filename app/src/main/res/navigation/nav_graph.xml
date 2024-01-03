@@ -2,10 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragmentMain">
+    app:startDestination="@id/fragmentHome">
 
     <fragment
-        android:id="@+id/fragmentMain"
+        android:id="@+id/fragmentHome"
         android:name="com.cristiangoncas.snackmovement.view.fragment.FragmentHome"
         android:label="FragmentMain">
         <action
@@ -29,8 +29,7 @@
             app:argType="boolean" />
         <action
             android:id="@+id/action_fragmentMovements_to_fragmentMovementDetail"
-            app:destination="@id/fragmentMovementDetail">
-        </action>
+            app:destination="@id/fragmentMovementDetail" />
     </fragment>
     <fragment
         android:id="@+id/fragmentMovementDetail"
@@ -44,5 +43,19 @@
             android:name="movementId"
             android:defaultValue="-1"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_fragmentMovementDetail_to_fragmentSnackInProgress"
+            app:destination="@id/fragmentSnackInProgress" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSnackInProgress"
+        android:name="com.cristiangoncas.snackmovement.view.fragment.FragmentSnackInProgress"
+        android:label="FragmentSnackInProgress">
+        <argument
+            android:name="snack"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_fragmentSnackInProgress_to_fragmentHome"
+            app:destination="@id/fragmentHome" />
     </fragment>
 </navigation>

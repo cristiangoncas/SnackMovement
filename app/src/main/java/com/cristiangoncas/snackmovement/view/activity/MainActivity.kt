@@ -22,8 +22,11 @@ class MainActivity : AppCompatActivity() {
                 ?: return
         val navController = host.navController
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if ((destination.id == R.id.fragmentMovements || destination.id == R.id.fragmentMovementDetail) &&
-                startingSnack
+            if ((
+                    destination.id == R.id.fragmentMovements ||
+                        destination.id == R.id.fragmentMovementDetail ||
+                        destination.id == R.id.fragmentSnackInProgress
+                    ) && startingSnack
             ) {
                 binding.newSnack.visibility = View.GONE
             } else {
