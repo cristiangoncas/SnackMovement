@@ -4,12 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.cristiangoncas.snackmovement.model.repository.local.entity.Movement
 import com.cristiangoncas.snackmovement.model.repository.local.entity.SnackLog
 import com.cristiangoncas.snackmovement.model.repository.local.queries.MovementDao
 import com.cristiangoncas.snackmovement.model.repository.local.queries.SnacksLogDao
 
 @Database(entities = [Movement::class, SnackLog::class], version = 1)
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun movementDao(): MovementDao
