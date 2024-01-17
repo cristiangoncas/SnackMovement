@@ -1,21 +1,23 @@
 package com.cristiangoncas.snackmovement.view.viewmodel
 
-import android.os.CountDownTimer
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.cristiangoncas.snackmovement.usecases.GetAvgSnacksPerPeriodUseCase
+import androidx.lifecycle.viewModelScope
+import com.cristiangoncas.snackmovement.model.models.SnackLog
+import com.cristiangoncas.snackmovement.usecases.GetSnacksPerPeriodUseCase
 import com.cristiangoncas.snackmovement.usecases.GetTodaySnacksUseCase
 import com.cristiangoncas.snackmovement.usecases.GetTopChallengesUseCase
 import com.cristiangoncas.snackmovement.usecases.GetYesterdaySnacksUseCase
 import com.cristiangoncas.snackmovement.usecases.PERIOD
 import com.cristiangoncas.snackmovement.view.state.HomeViewState
+import kotlinx.coroutines.launch
 
 class HomeViewModelImpl(
     private val getTodaySnacksUseCase: GetTodaySnacksUseCase,
     private val getYesterdaySnacksUseCase: GetYesterdaySnacksUseCase,
-    private val getAvgSnacksPerPeriodUseCase: GetAvgSnacksPerPeriodUseCase,
-    private val getTopChallengesUseCase: GetTopChallengesUseCase,
+    private val getSnacksPerPeriodUseCase: GetSnacksPerPeriodUseCase,
+    private val getSnackLog: GetTopChallengesUseCase,
 ) : HomeViewModel, ViewModel() {
 
     private val viewStateLiveData: MutableLiveData<HomeViewState> = MutableLiveData(HomeViewState())
@@ -25,25 +27,30 @@ class HomeViewModelImpl(
     }
 
     override fun loadHome() {
-        val today = getTodaySnacksUseCase.invoke()
-        viewStateLiveData.value?.let { viewState ->
-            viewState.todaySnackCount = today
-            viewStateLiveData.postValue(viewState)
+        viewModelScope.launch {
+            getTodaySnacksUseCase.invoke().collect {
+                viewStateLiveData.value?.let { viewState ->
+                    viewState.todaySnackCount = it.size
+                    viewStateLiveData.postValue(viewState)
+                }
+            }
         }
-        val yesterday = getYesterdaySnacksUseCase.invoke()
-        viewStateLiveData.value?.let { viewState ->
-            viewState.yesterdaySnackCount = yesterday
-            viewStateLiveData.postValue(viewState)
+        viewModelScope.launch {
+            getYesterdaySnacksUseCase.invoke().collect() {
+                viewStateLiveData.value?.let { viewState ->
+                    viewState.yesterdaySnackCount = it.size
+                    viewStateLiveData.postValue(viewState)
+                }
+            }
         }
-        val avg = getAvgSnacksPerPeriodUseCase.invoke(PERIOD.MONTH)
-        viewStateLiveData.value?.let { viewState ->
-            viewState.averageSnackCount = avg
-            viewStateLiveData.postValue(viewState)
-        }
-        val top = getTopChallengesUseCase.invoke()
-        viewStateLiveData.value?.let { viewState ->
-            viewState.topList = top
-            viewStateLiveData.postValue(viewState)
+        viewModelScope.launch {
+            getSnacksPerPeriodUseCase.invoke(PERIOD.MONTH).collect() {
+                viewStateLiveData.value?.let { viewState ->
+                    viewState.averageSnackCount = it.size
+                    viewState.snackLog = it
+                    viewStateLiveData.postValue(viewState)
+                }
+            }
         }
     }
 }

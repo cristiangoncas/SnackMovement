@@ -2,6 +2,7 @@ package com.cristiangoncas.snackmovement.usecases
 
 import com.cristiangoncas.snackmovement.model.models.Snack
 import com.cristiangoncas.snackmovement.model.repository.SnacksLogRepository
+import java.util.Calendar
 
 interface RegisterSnackUseCase {
 
@@ -12,6 +13,6 @@ class RegisterSnackUseCaseImpl(
     private val snacksLogRepository: SnacksLogRepository,
 ) : RegisterSnackUseCase {
     override fun invoke(snack: Snack) {
-        snacksLogRepository.insertSnackLog(System.currentTimeMillis(), snack)
+        snacksLogRepository.insertSnackLog(Calendar.getInstance().time, snack)
     }
 }

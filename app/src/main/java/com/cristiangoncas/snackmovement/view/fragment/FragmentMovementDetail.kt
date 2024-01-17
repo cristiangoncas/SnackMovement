@@ -45,13 +45,15 @@ class FragmentMovementDetail : Fragment() {
                     movementName = movement.name,
                     movementDifficulty = movement.difficulty,
                 )
-            } ?: throw Exception("FragmentMovementDetail::ViewState should contain a non null movement.")
+            }
+                ?: throw Exception("FragmentMovementDetail::ViewState should contain a non null movement.")
             val action =
                 FragmentMovementDetailDirections.actionFragmentMovementDetailToFragmentSnackInProgress(
                     snack = Json.encodeToString(snack),
                 )
             findNavController().navigate(action)
         }
+        binding.back.setOnClickListener { findNavController().navigateUp() }
         viewModel.viewState().observe(
             viewLifecycleOwner,
         ) { state ->

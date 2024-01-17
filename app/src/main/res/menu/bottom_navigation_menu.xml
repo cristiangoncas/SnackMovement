@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/fragmentHome"
+        android:icon="@drawable/home"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/fragmentMovements"
+        android:icon="@drawable/profile"
+        android:title="@string/movements" />
+    <item
+        android:id="@+id/fragmentStatistics"
+        android:icon="@drawable/statistics"
+        android:title="@string/statistics" />
+<!--    <item-->
+<!--        android:id="@+id/nav_profile"-->
+<!--        android:icon="@drawable/ic_launcher_background"-->
+<!--        android:title="@string/profile" />-->
+</menu>
