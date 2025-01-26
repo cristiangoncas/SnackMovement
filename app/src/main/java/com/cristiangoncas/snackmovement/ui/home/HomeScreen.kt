@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui.notifications
+package com.cristiangoncas.snackmovement.ui.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -16,8 +16,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cristiangoncas.snackmovement.ui.Screen
 
 @Composable
-fun NotificationsScreen(
-    viewModel: NotificationsViewModel = viewModel(),
+fun HomeScreen(
+    viewModel: HomeViewModel = viewModel(),
 ) {
     val state = viewModel.state.collectAsState()
 
@@ -43,6 +43,6 @@ fun NotificationsScreen(
 
 @Preview
 @Composable
-fun NotificationsScreenPreview() {
-    NotificationsScreen()
+fun HomeScreenPreview() {
+    HomeScreen()
 }

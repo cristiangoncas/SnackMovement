@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui.screens
+package com.cristiangoncas.snackmovement.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
