@@ -11,6 +11,8 @@ import com.cristiangoncas.snackmovement.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    // TODO set status bar color
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
