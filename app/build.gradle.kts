@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlinxSerialization)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -68,6 +69,7 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.google.fonts)
 
     // Jetpack Compose: Navigation
     implementation(libs.androidx.navigation.compose)
@@ -77,6 +79,11 @@ dependencies {
 
     // Serialization
     implementation(libs.kotlinx.serialization.json)
+
+    // Room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
 
     // Tests
     testImplementation(libs.junit)
