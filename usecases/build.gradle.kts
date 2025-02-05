@@ -14,5 +14,4 @@ kotlin {
 
 dependencies {
     implementation(project(":data"))
-    implementation(project(":domain"))
 }
