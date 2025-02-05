@@ -11,11 +11,11 @@ interface ExerciseDao {
     @Insert
     fun insertExercise(exercise: DbExercise)
 
-    @Query("SELECT * FROM DbExercise")
+    @Query("SELECT * FROM Exercises")
     fun getAllExercises(): List<DbExercise>
 
 
-    @Query("SELECT * FROM DbExercise WHERE id = :id")
+    @Query("SELECT * FROM Exercises WHERE id = :id")
     fun getExerciseById(id: Int): DbExercise
 
 }

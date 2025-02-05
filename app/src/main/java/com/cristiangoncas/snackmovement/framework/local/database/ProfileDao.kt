@@ -11,7 +11,7 @@ interface ProfileDao {
     @Insert
     fun insertProfile(profile: DbProfile)
 
-    @Query("SELECT * FROM DbProfile WHERE id = :id")
+    @Query("SELECT * FROM Profile WHERE id = :id")
     fun getProfileById(id: Int): DbProfile
 
 }

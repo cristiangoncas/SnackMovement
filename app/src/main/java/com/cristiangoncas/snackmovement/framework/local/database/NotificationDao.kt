@@ -11,7 +11,7 @@ interface NotificationDao {
     @Insert
     fun insertNotification(notification: DbNotification)
 
-    @Query("SELECT * FROM DbNotification WHERE id = :type")
+    @Query("SELECT * FROM Notifications WHERE type = :type")
     fun getNotificationByType(type: Int): DbNotification
 
 }
