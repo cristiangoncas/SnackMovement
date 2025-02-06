@@ -20,6 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -27,6 +28,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.cristiangoncas.snackmovement.R
 import com.cristiangoncas.snackmovement.ui.dashboard.DashboardScreen
+import com.cristiangoncas.snackmovement.ui.exercises.ExercisesScreen
 import com.cristiangoncas.snackmovement.ui.home.HomeScreen
 import com.cristiangoncas.snackmovement.ui.notifications.NotificationsScreen
 import kotlinx.serialization.Serializable
@@ -40,6 +42,11 @@ fun Navigation() {
             name = stringResource(R.string.title_home),
             route = Home,
             icon = painterResource(R.drawable.ic_home_black_24dp),
+        ),
+        TopLevelRoute(
+            name = stringResource(R.string.title_exercises),
+            route = Exercises,
+            icon = painterResource(R.drawable.ic_notifications_black_24dp),
         ),
         TopLevelRoute(
             name = stringResource(R.string.title_dashboard),
@@ -94,6 +101,9 @@ fun Navigation() {
             composable<Home> {
                 HomeScreen()
             }
+            composable<Exercises> {
+                ExercisesScreen(viewModel())
+            }
             composable<Dashboard> {
                 DashboardScreen()
             }
@@ -142,6 +152,9 @@ private data class TopLevelRoute<T : Any>(val name: String, val route: T, val ic
 
 @Serializable
 object Home
+
+@Serializable
+object Exercises
 
 @Serializable
 object Dashboard
