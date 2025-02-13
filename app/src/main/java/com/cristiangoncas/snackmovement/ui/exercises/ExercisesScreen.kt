@@ -71,6 +71,12 @@ fun ExercisesScreen(
     viewModel.onUiReady()
 }
 
+@Preview(showBackground = true)
+@Composable
+fun ExercisesScreenPreview() {
+    ExercisesScreen(ExercisesViewModel())
+}
+
 @Composable
 fun ExercisesList(exercises: List<Exercise>, paddingValues: PaddingValues) {
     LazyColumn(
@@ -80,82 +86,6 @@ fun ExercisesList(exercises: List<Exercise>, paddingValues: PaddingValues) {
             ExerciseItem(exercises[index])
         }
     }
-}
-
-@Composable
-fun ExerciseItem(exercise: Exercise) {
-    Box {
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-        ) {
-
-            // Circular shape to act as a difficulty traffic light
-            DifficultyTrafficLight(exercise.difficulty)
-
-            Text(
-                exercise.name,
-                modifier = Modifier
-                    .align(Alignment.CenterVertically)
-                    .weight(.8f)
-                    .padding(horizontal = 8.dp)
-            )
-            Image(
-                imageVector = Icons.Default.KeyboardArrowUp,
-                contentDescription = null,
-                modifier = Modifier
-                    .align(Alignment.CenterVertically)
-                    .padding(start = 8.dp)
-                    .rotate(degrees = 90f)
-                    .weight(.2f)
-            )
-        }
-    }
-}
-
-@Composable
-fun DifficultyTrafficLight(difficulty: DifficultyLevel) {
-    val color = when (difficulty) {
-        DifficultyLevel.BEGINNER -> Green
-        DifficultyLevel.INTERMEDIATE -> Orange
-        DifficultyLevel.ADVANCED -> Red
-    }
-    Box(
-        modifier = Modifier
-            .width(15.dp)
-            .height(15.dp)
-            .background(color, shape = CircleShape)
-            .padding(8.dp)
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DashboardScreenPreview() {
-    DifficultyTrafficLight(DifficultyLevel.BEGINNER)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ExercisesScreenPreview() {
-    ExercisesScreen(ExercisesViewModel())
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ExerciseItemPreview() {
-    ExerciseItem(
-        Exercise(
-            "Exercise Name",
-            "Description",
-            DifficultyLevel.BEGINNER,
-            listOf(MuscleGroup.LEGS, MuscleGroup.CORE),
-            false
-        )
-    )
 }
 
 @Preview(showBackground = true)
