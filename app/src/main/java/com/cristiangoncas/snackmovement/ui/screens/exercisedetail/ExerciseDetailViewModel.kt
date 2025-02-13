@@ -17,7 +17,7 @@ class ExerciseDetailViewModel : ViewModel() {
 
     fun onUiReady(exerciseId: Int) {
         viewModelScope.launch {
-            delay(500)
+            delay(750)
             _state.value = UiState(
                 exercise = exercise
             )

@@ -54,7 +54,7 @@ fun SkeletonExerciseDetailContent() {
                     .align(Alignment.End)
                     .wrapContentSize(),
                 colors = CardColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
                     contentColor = Color.Black,
                     disabledContainerColor = Color.White,
                     disabledContentColor = Color.Black
@@ -186,7 +186,7 @@ fun ExerciseDetailContent(
                     .align(Alignment.End)
                     .wrapContentSize(),
                 colors = CardColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
                     contentColor = Color.Black,
                     disabledContainerColor = Color.White,
                     disabledContentColor = Color.Black
@@ -282,6 +282,7 @@ fun StartExerciseButton(
             .height(90.dp)
             .padding(16.dp),
         contentColor = Color.Black,
+        containerColor = MaterialTheme.colorScheme.secondaryContainer
     ) {
         Text(
             "Start",
