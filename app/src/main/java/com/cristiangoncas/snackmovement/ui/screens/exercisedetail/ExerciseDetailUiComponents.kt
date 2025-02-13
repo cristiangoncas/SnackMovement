@@ -61,8 +61,9 @@ fun SkeletonExerciseDetailContent() {
                 )
             ) {
                 Text(
-                    text = exercise.name,
+                    text = "",
                     modifier = Modifier
+                        .width(200.dp)
                         .padding(horizontal = 28.dp, vertical = 16.dp),
                     style = MaterialTheme.typography.titleLarge,
                     color = MaterialTheme.colorScheme.primary
