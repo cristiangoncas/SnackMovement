@@ -5,13 +5,19 @@ import com.cristiangoncas.snackmovement.domain.models.DifficultyLevel
 import com.cristiangoncas.snackmovement.domain.models.Exercise
 import com.cristiangoncas.snackmovement.domain.models.MuscleGroup
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 class ExercisesViewModel : ViewModel() {
 
-    val state = MutableStateFlow(UiState())
+    private val _state = MutableStateFlow(UiState())
+    val state = _state.asStateFlow()
 
     fun onUiReady() {
-        state.value = UiState(exercises = exercises)
+        _state.value = UiState(exercises = exercises)
+    }
+
+    fun onExerciseClick(id: Int) {
+        // Handle exercise click event
     }
 
     data class UiState(
@@ -22,6 +28,7 @@ class ExercisesViewModel : ViewModel() {
 
 val exercises = listOf(
     Exercise(
+        0,
         "Bodyweight Squat",
         "Stand with feet shoulder-width apart and lower your hips as if sitting on a chair, then return to standing.",
         DifficultyLevel.BEGINNER,
@@ -29,6 +36,7 @@ val exercises = listOf(
         false
     ),
     Exercise(
+        1,
         "Forward Lunge",
         "Step one foot forward, lower your hips until both knees form 90-degree angles, then push back to the starting position.",
         DifficultyLevel.BEGINNER,
@@ -36,6 +44,7 @@ val exercises = listOf(
         false
     ),
     Exercise(
+        2,
         "Push-Up",
         "Start in a plank position and lower your chest toward the floor by bending your elbows, then press back up.",
         DifficultyLevel.INTERMEDIATE,
@@ -43,6 +52,7 @@ val exercises = listOf(
         false
     ),
     Exercise(
+        3,
         "Plank",
         "Hold a push-up position on your forearms, keeping your body in a straight line from head to heels.",
         DifficultyLevel.BEGINNER,
@@ -50,6 +60,7 @@ val exercises = listOf(
         false
     ),
     Exercise(
+        4,
         "Side Plank",
         "Lie on your side, prop yourself up on one forearm, and lift your hips off the floor, forming a straight line.",
         DifficultyLevel.INTERMEDIATE,
@@ -57,6 +68,7 @@ val exercises = listOf(
         false
     ),
     Exercise(
+        5,
         "Mountain Climbers",
         "From a plank position, drive your knees toward your chest in a running motion, alternating legs quickly.",
         DifficultyLevel.INTERMEDIATE,
@@ -64,6 +76,7 @@ val exercises = listOf(
         false
     ),
     Exercise(
+        6,
         "Burpees",
         "From standing, drop into a squat, kick your feet back into a plank, do a push-up (optional), then jump up explosively.",
         DifficultyLevel.ADVANCED,
@@ -71,6 +84,7 @@ val exercises = listOf(
         false
     ),
     Exercise(
+        7,
         "Glute Bridge",
         "Lie on your back, knees bent, feet on the floor. Lift your hips by squeezing your glutes, then lower slowly.",
         DifficultyLevel.BEGINNER,
@@ -78,6 +92,7 @@ val exercises = listOf(
         false
     ),
     Exercise(
+        8,
         "Jumping Jacks",
         "From a standing position, jump feet out to the sides while raising arms overhead, then return to start.",
         DifficultyLevel.BEGINNER,
@@ -85,6 +100,7 @@ val exercises = listOf(
         false
     ),
     Exercise(
+        9,
         "Kettlebell Swing",
         "Hinge at the hips to swing the kettlebell forward to shoulder height, using glutes and hamstrings.",
         DifficultyLevel.INTERMEDIATE,
@@ -92,6 +108,7 @@ val exercises = listOf(
         true
     ),
     Exercise(
+        10,
         "Goblet Squat",
         "Hold a kettlebell or dumbbell at chest height and perform a squat, keeping your back straight.",
         DifficultyLevel.BEGINNER,
@@ -99,6 +116,7 @@ val exercises = listOf(
         true
     ),
     Exercise(
+        11,
         "Deadlift",
         "Hinge at the hips and lift the weight from the ground to standing, keeping your back neutral.",
         DifficultyLevel.INTERMEDIATE,
@@ -106,6 +124,7 @@ val exercises = listOf(
         true
     ),
     Exercise(
+        12,
         "Overhead Press",
         "Press weights straight overhead from shoulder level, keeping your core engaged.",
         DifficultyLevel.INTERMEDIATE,
@@ -113,6 +132,7 @@ val exercises = listOf(
         true
     ),
     Exercise(
+        13,
         "Bent-Over Row",
         "Hinge at the hips with a flat back, pulling weight toward your torso and squeezing shoulder blades together.",
         DifficultyLevel.INTERMEDIATE,
@@ -120,6 +140,7 @@ val exercises = listOf(
         true
     ),
     Exercise(
+        14,
         "Farmer’s Carry",
         "Walk forward holding weights by your sides, maintaining an upright posture and tight core.",
         DifficultyLevel.BEGINNER,
@@ -127,6 +148,7 @@ val exercises = listOf(
         true
     ),
     Exercise(
+        15,
         "Thruster",
         "Perform a front squat and then immediately transition into an overhead press in one fluid motion.",
         DifficultyLevel.ADVANCED,

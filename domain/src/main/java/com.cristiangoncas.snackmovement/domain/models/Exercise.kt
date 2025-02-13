@@ -1,6 +1,7 @@
 package com.cristiangoncas.snackmovement.domain.models
 
 data class Exercise(
+    val id: Int = 0,
     val name: String,
     val description: String,
     val difficulty: DifficultyLevel,

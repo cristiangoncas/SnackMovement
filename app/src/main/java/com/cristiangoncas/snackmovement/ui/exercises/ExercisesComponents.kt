@@ -2,6 +2,7 @@ package com.cristiangoncas.snackmovement.ui.exercises
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -17,6 +18,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.cristiangoncas.snackmovement.domain.models.DifficultyLevel
@@ -27,7 +31,7 @@ import com.cristiangoncas.snackmovement.ui.theme.Orange
 import com.cristiangoncas.snackmovement.ui.theme.Red
 
 @Composable
-fun ExerciseItem(exercise: Exercise) {
+fun ExerciseItem(exercise: Exercise, onClick: (Int) -> Unit) {
     Box {
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -35,6 +39,13 @@ fun ExerciseItem(exercise: Exercise) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
+                .clickable(
+                    onClick = { onClick(exercise.id) },
+                    role = Role.Button
+                )
+                .semantics {
+                    contentDescription = exercise.name
+                }
         ) {
 
             // Circular shape to act as a difficulty traffic light
@@ -49,7 +60,7 @@ fun ExerciseItem(exercise: Exercise) {
             )
             Image(
                 imageVector = Icons.Default.KeyboardArrowUp,
-                contentDescription = null,
+                contentDescription = "View exercise details",
                 modifier = Modifier
                     .align(Alignment.CenterVertically)
                     .padding(start = 8.dp)
@@ -65,12 +76,14 @@ fun ExerciseItem(exercise: Exercise) {
 fun ExerciseItemPreview() {
     ExerciseItem(
         Exercise(
+            1,
             "Exercise Name",
             "Description",
             DifficultyLevel.BEGINNER,
             listOf(MuscleGroup.LEGS, MuscleGroup.CORE),
-            false
-        )
+            false,
+        ),
+        {}
     )
 }
 
