@@ -56,21 +56,3 @@ fun ExercisesScreen(
 fun ExercisesScreenPreview() {
     ExercisesScreen(ExercisesViewModel()) {}
 }
-
-@Composable
-fun ExercisesList(exercises: List<Exercise>, onExerciseClick: (Int) -> Unit = {}, paddingValues: PaddingValues) {
-    LazyColumn(
-        contentPadding = paddingValues
-    ) {
-        items(exercises.size) { index ->
-            ExerciseItem(exercises[index], onExerciseClick)
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ExercisesListPreview() {
-    val exercisesList = exercises
-    ExercisesList(exercisesList, onExerciseClick = {}, PaddingValues(16.dp))
-}

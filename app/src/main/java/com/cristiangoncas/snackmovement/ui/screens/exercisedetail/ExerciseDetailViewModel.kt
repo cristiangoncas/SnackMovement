@@ -25,7 +25,7 @@ class ExerciseDetailViewModel : ViewModel() {
     }
 
     fun onStartClicked() {
-
+        // TODO:  Open timer modal
     }
 
     data class UiState(
