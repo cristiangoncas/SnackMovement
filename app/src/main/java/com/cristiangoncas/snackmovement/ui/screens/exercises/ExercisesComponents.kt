@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui.exercises
+package com.cristiangoncas.snackmovement.ui.screens.exercises
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

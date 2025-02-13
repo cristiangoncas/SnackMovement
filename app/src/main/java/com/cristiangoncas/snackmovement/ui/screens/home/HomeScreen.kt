@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui.dashboard
+package com.cristiangoncas.snackmovement.ui.screens.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -22,8 +22,8 @@ import com.cristiangoncas.snackmovement.ui.Screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DashboardScreen(
-    viewModel: DashboardViewModel = viewModel(),
+fun HomeScreen(
+    viewModel: HomeViewModel = viewModel(),
 ) {
     val state = viewModel.state.collectAsState()
 
@@ -32,7 +32,7 @@ fun DashboardScreen(
             topBar = {
                 TopAppBar(
                     title = {
-                        Text(text = stringResource(R.string.title_dashboard))
+                        Text(text = stringResource(R.string.title_home))
                     },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.surfaceVariant,
@@ -58,6 +58,6 @@ fun DashboardScreen(
 
 @Preview
 @Composable
-fun DashboardScreenPreview() {
-    DashboardScreen()
+fun HomeScreenPreview() {
+    HomeScreen()
 }

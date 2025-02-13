@@ -22,15 +22,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.cristiangoncas.snackmovement.R
-import com.cristiangoncas.snackmovement.ui.dashboard.DashboardScreen
-import com.cristiangoncas.snackmovement.ui.exercises.ExercisesScreen
-import com.cristiangoncas.snackmovement.ui.home.HomeScreen
-import com.cristiangoncas.snackmovement.ui.notifications.NotificationsScreen
+import com.cristiangoncas.snackmovement.ui.screens.dashboard.DashboardScreen
+import com.cristiangoncas.snackmovement.ui.screens.exercisedetail.ExerciseDetailScreen
+import com.cristiangoncas.snackmovement.ui.screens.exercises.ExercisesScreen
+import com.cristiangoncas.snackmovement.ui.screens.home.HomeScreen
+import com.cristiangoncas.snackmovement.ui.screens.notifications.NotificationsScreen
 import kotlinx.serialization.Serializable
 
 @Composable
@@ -64,31 +67,34 @@ fun Navigation() {
         bottomBar = {
             val navBackStackEntry = navController.currentBackStackEntryAsState()
             val currentDestination = navBackStackEntry.value?.destination
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(MaterialTheme.colorScheme.surfaceVariant)
-                    .padding(16.dp),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-            ) {
-                topLevelRoutes.forEach { topLevelRoute ->
-                    BottomNavigationItem(
-                        icon = topLevelRoute.icon,
-                        name = topLevelRoute.name,
-                        selected = currentDestination?.route?.let {
-                            topLevelRoute.route.toString().contains(it)
-                        } == true,
-                        onClick = {
-                            navController.navigate(topLevelRoute.route) {
-                                popUpTo(navController.graph.findStartDestination().id) {
-                                    saveState = true
+
+            if (currentDestination?.route != "${ExerciseDetail}/{exerciseId}") {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(MaterialTheme.colorScheme.surfaceVariant)
+                        .padding(16.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                ) {
+                    topLevelRoutes.forEach { topLevelRoute ->
+                        BottomNavigationItem(
+                            icon = topLevelRoute.icon,
+                            name = topLevelRoute.name,
+                            selected = currentDestination?.route?.let {
+                                topLevelRoute.route.toString().contains(it)
+                            } == true,
+                            onClick = {
+                                navController.navigate(topLevelRoute.route) {
+                                    popUpTo(navController.graph.findStartDestination().id) {
+                                        saveState = true
+                                    }
+                                    launchSingleTop = true
+                                    restoreState = true
                                 }
-                                launchSingleTop = true
-                                restoreState = true
-                            }
-                        },
-                        modifier = Modifier.weight(1f)
-                    )
+                            },
+                            modifier = Modifier.weight(1f)
+                        )
+                    }
                 }
             }
         }
@@ -102,7 +108,19 @@ fun Navigation() {
                 HomeScreen()
             }
             composable<Exercises> {
-                ExercisesScreen(viewModel())
+                ExercisesScreen(viewModel()) { exerciseId ->
+                    navController.navigate("${ExerciseDetail}/$exerciseId")
+                }
+            }
+            composable(
+                route = "${ExerciseDetail}/{exerciseId}",
+                arguments = listOf(navArgument("exerciseId") { type = NavType.IntType })
+            ) { backStackEntry ->
+                val exerciseId = backStackEntry.arguments?.getInt("exerciseId")
+                exerciseId?.let {
+                    ExerciseDetailScreen(exerciseId = it)
+                }
+
             }
             composable<Dashboard> {
                 DashboardScreen()
@@ -155,6 +173,9 @@ object Home
 
 @Serializable
 object Exercises
+
+@Serializable
+object ExerciseDetail
 
 @Serializable
 object Dashboard

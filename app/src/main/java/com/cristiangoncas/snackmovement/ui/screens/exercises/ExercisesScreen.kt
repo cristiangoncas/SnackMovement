@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui.exercises
+package com.cristiangoncas.snackmovement.ui.screens.exercises
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
@@ -14,6 +14,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cristiangoncas.snackmovement.R
 import com.cristiangoncas.snackmovement.domain.models.Exercise
 import com.cristiangoncas.snackmovement.ui.Screen
@@ -21,7 +22,8 @@ import com.cristiangoncas.snackmovement.ui.Screen
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ExercisesScreen(
-    viewModel: ExercisesViewModel
+    viewModel: ExercisesViewModel = viewModel(),
+    onExerciseClick: (Int) -> Unit
 ) {
     val state = viewModel.state.collectAsState()
     LaunchedEffect(Unit) {
@@ -42,7 +44,7 @@ fun ExercisesScreen(
         ) { padding ->
             ExercisesList(
                 exercises = state.value.exercises,
-                onExerciseClick = { id -> viewModel.onExerciseClick(id) },
+                onExerciseClick = { id -> onExerciseClick(id) },
                 paddingValues = padding,
             )
         }
@@ -52,7 +54,7 @@ fun ExercisesScreen(
 @Preview(showBackground = true)
 @Composable
 fun ExercisesScreenPreview() {
-    ExercisesScreen(ExercisesViewModel())
+    ExercisesScreen(ExercisesViewModel()) {}
 }
 
 @Composable
