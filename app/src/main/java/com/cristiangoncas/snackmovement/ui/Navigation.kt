@@ -29,6 +29,8 @@ import com.cristiangoncas.snackmovement.R
 import com.cristiangoncas.snackmovement.ui.dashboard.DashboardScreen
 import com.cristiangoncas.snackmovement.ui.home.HomeScreen
 import com.cristiangoncas.snackmovement.ui.notifications.NotificationsScreen
+import com.cristiangoncas.snackmovement.ui.settings.SettingsScreen
+import com.cristiangoncas.snackmovement.ui.settings.SettingsScreenPreview
 import kotlinx.serialization.Serializable
 
 @Composable
@@ -98,7 +100,7 @@ fun Navigation() {
                 DashboardScreen()
             }
             composable<Notifications> {
-                NotificationsScreen()
+                SettingsScreen()
             }
         }
     }
