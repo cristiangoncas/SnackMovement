@@ -11,3 +11,7 @@ val Teal700 = Color(0xFF018786)
 
 val Black = Color(0xFF000000)
 val White = Color(0xFFFFFFFF)
+
+val Red = Color(0xFFF44336)
+val Orange = Color(0xFFFF9800)
+val Green = Color(0xFF4CAF50)
