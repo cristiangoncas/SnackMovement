@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui.home
+package com.cristiangoncas.snackmovement.ui.screens.notifications
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -22,8 +22,8 @@ import com.cristiangoncas.snackmovement.ui.Screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(
-    viewModel: HomeViewModel = viewModel(),
+fun NotificationsScreen(
+    viewModel: NotificationsViewModel = viewModel(),
 ) {
     val state = viewModel.state.collectAsState()
 
@@ -32,7 +32,7 @@ fun HomeScreen(
             topBar = {
                 TopAppBar(
                     title = {
-                        Text(text = stringResource(R.string.title_home))
+                        Text(text = stringResource(R.string.title_notifications))
                     },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.surfaceVariant,
@@ -58,6 +58,6 @@ fun HomeScreen(
 
 @Preview
 @Composable
-fun HomeScreenPreview() {
-    HomeScreen()
+fun NotificationsScreenPreview() {
+    NotificationsScreen()
 }

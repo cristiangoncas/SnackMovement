@@ -1,15 +1,15 @@
-package com.cristiangoncas.snackmovement.ui.notifications
+package com.cristiangoncas.snackmovement.ui.screens.home
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class NotificationsViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
 
     private val _state = MutableStateFlow(UIState())
     val state get() = _state.asStateFlow()
 }
 
 data class UIState(
-    val text: String = "This is notifications screen",
+    val text: String = "This is home screen",
 )

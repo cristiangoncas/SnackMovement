@@ -1,9 +1,7 @@
-package com.cristiangoncas.snackmovement.ui.dashboard
+package com.cristiangoncas.snackmovement.ui.screens.exercises
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -11,28 +9,32 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cristiangoncas.snackmovement.R
+import com.cristiangoncas.snackmovement.domain.models.Exercise
 import com.cristiangoncas.snackmovement.ui.Screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DashboardScreen(
-    viewModel: DashboardViewModel = viewModel(),
+fun ExercisesScreen(
+    viewModel: ExercisesViewModel = viewModel(),
+    onExerciseClick: (Int) -> Unit
 ) {
     val state = viewModel.state.collectAsState()
-
+    LaunchedEffect(Unit) {
+        viewModel.onUiReady()
+    }
     Screen {
         Scaffold(
             topBar = {
                 TopAppBar(
                     title = {
-                        Text(text = stringResource(R.string.title_dashboard))
+                        Text(text = stringResource(R.string.title_exercises))
                     },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.surfaceVariant,
@@ -40,24 +42,17 @@ fun DashboardScreen(
                 )
             },
         ) { padding ->
-            Box(
-                modifier = Modifier
-                    .background(MaterialTheme.colorScheme.surface)
-                    .fillMaxSize()
-                    .padding(padding),
-            ) {
-                Text(
-                    text = state.value.text,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    modifier = Modifier.align(Alignment.Center),
-                )
-            }
+            ExercisesList(
+                exercises = state.value.exercises,
+                onExerciseClick = { id -> onExerciseClick(id) },
+                paddingValues = padding,
+            )
         }
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
-fun DashboardScreenPreview() {
-    DashboardScreen()
+fun ExercisesScreenPreview() {
+    ExercisesScreen(ExercisesViewModel()) {}
 }
