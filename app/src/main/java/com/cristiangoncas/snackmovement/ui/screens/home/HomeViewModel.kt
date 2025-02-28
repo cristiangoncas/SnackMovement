@@ -15,13 +15,13 @@ class HomeViewModel : ViewModel() {
     fun onUiReady(){
         viewModelScope.launch {
             _state.value = UIState(loading = true)
-            _state.value = UIState(loading = false, exercises = listOf("Running","Walking","Cycling","Dancing"))
+            _state.value = UIState(loading = false, exercises = listOf())
         }
     }
 
     data class UIState(
         val loading: Boolean = false,
-        val motivationalQuote: String = "Keep going!\n\n Your doing a great job!",
+        val motivationalQuote: String = "Keep going!\n\n You're doing a great job!",
         val exercises: List<String> = emptyList()
     )
 

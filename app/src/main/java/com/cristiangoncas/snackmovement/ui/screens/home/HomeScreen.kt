@@ -21,7 +21,9 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -37,6 +39,11 @@ import com.cristiangoncas.snackmovement.ui.Screen
 fun HomeScreen(
     viewModel: HomeViewModel = viewModel(),
 ) {
+
+    LaunchedEffect(key1 = true) {
+        viewModel.onUiReady()
+    }
+
     Screen {
         Scaffold(
             topBar = {
@@ -50,8 +57,8 @@ fun HomeScreen(
                 )
             },
         ) { padding ->
-            val state = viewModel.state.collectAsState()
-            if (state.value.loading) {
+            val state by viewModel.state.collectAsState()
+            if (state.loading) {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -131,7 +138,7 @@ fun HomeScreen(
                         .background(MaterialTheme.colorScheme.onPrimary, RoundedCornerShape(4.dp)),
                 ) {
                     Text(
-                        text = state.value.motivationalQuote,
+                        text = state.motivationalQuote,
                         modifier = Modifier
                             .padding(16.dp)
                             .align(Alignment.Center)
@@ -158,9 +165,7 @@ fun HomeScreen(
                     items(exercises) { exercise ->
                         ExerciseItem(exercise = exercise)
                     }
-                    viewModel.onUiReady()
                 }
-
 
             }
 
