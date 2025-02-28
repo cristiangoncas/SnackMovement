@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui.home
+package com.cristiangoncas.snackmovement.ui.screens.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

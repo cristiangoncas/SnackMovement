@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui.notifications
+package com.cristiangoncas.snackmovement.ui.screens.notifications
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

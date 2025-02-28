@@ -9,23 +9,23 @@ data class Exercise(
     val requiresEquipment: Boolean,
 )
 
-enum class DifficultyLevel(val id: Int) {
-    BEGINNER(0),
-    INTERMEDIATE(1),
-    ADVANCED(2);
+enum class DifficultyLevel(val id: Int, val label: String) {
+    BEGINNER(0, "Beginner"),
+    INTERMEDIATE(1, "Intermediate"),
+    ADVANCED(2, "Advanced");
 
     companion object {
         fun fromId(id: Int) = entries.firstOrNull { it.id == id } ?: BEGINNER
     }
 }
 
-enum class MuscleGroup(val id: Int) {
-    LEGS(0),
-    ARMS(1),
-    CORE(2),
-    BACK(3),
-    CHEST(4),
-    SHOULDERS(5);
+enum class MuscleGroup(val id: Int, val label: String) {
+    LEGS(0, "Legs"),
+    ARMS(1, "Arms"),
+    CORE(2, "Core"),
+    BACK(3, "Back"),
+    CHEST(4, "Chest"),
+    SHOULDERS(5, "Shoulders");
 
     companion object {
         fun fromId(id: Int) = entries.firstOrNull { it.id == id } ?: LEGS

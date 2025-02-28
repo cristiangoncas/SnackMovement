@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui.exercises
+package com.cristiangoncas.snackmovement.ui.screens.exercises
 
 import androidx.lifecycle.ViewModel
 import com.cristiangoncas.snackmovement.domain.models.DifficultyLevel
