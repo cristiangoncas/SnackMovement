@@ -29,6 +29,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.cristiangoncas.snackmovement.R
+import com.cristiangoncas.snackmovement.ui.screens.profile.ProfileScreen
 import com.cristiangoncas.snackmovement.ui.screens.dashboard.DashboardScreen
 import com.cristiangoncas.snackmovement.ui.screens.exercisedetail.ExerciseDetailScreen
 import com.cristiangoncas.snackmovement.ui.screens.exercises.ExercisesScreen
@@ -59,6 +60,11 @@ fun Navigation() {
         TopLevelRoute(
             name = stringResource(R.string.title_notifications),
             route = Notifications,
+            icon = painterResource(R.drawable.ic_notifications_black_24dp),
+        ),
+        TopLevelRoute(
+            name = stringResource(R.string.title_profile),
+            route = Profile,
             icon = painterResource(R.drawable.ic_notifications_black_24dp),
         ),
     )
@@ -128,6 +134,9 @@ fun Navigation() {
             composable<Notifications> {
                 NotificationsScreen()
             }
+            composable<Profile> {
+                ProfileScreen()
+            }
         }
     }
 }
@@ -182,3 +191,6 @@ object Dashboard
 
 @Serializable
 object Notifications
+
+@Serializable
+object Profile
