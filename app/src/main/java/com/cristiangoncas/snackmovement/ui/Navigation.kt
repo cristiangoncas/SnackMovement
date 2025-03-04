@@ -51,7 +51,7 @@ fun Navigation() {
             icon = painterResource(R.drawable.ic_notifications_black_24dp),
         ),
         TopLevelRoute(
-            name = stringResource(R.string.title_dashboard),
+            name = stringResource(R.string.title_statistics),
             route = Statistics,
             icon = painterResource(R.drawable.ic_dashboard_black_24dp),
         ),

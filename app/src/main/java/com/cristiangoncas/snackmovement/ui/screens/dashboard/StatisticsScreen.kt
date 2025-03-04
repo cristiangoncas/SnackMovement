@@ -23,7 +23,7 @@ import com.cristiangoncas.snackmovement.ui.Screen
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun StatisticsScreen(
-    viewModel: DashboardViewModel = viewModel(),
+    viewModel: StatisticsViewModel = viewModel(),
 ) {
     val state = viewModel.state.collectAsState()
     Screen {
@@ -31,7 +31,7 @@ fun StatisticsScreen(
             topBar = {
                 TopAppBar(
                     title = {
-                        Text(text = stringResource(R.string.title_dashboard))
+                        Text(text = stringResource(R.string.title_statistics))
                     },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.surfaceVariant,
