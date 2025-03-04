@@ -26,7 +26,6 @@ fun StatisticsScreen(
     viewModel: DashboardViewModel = viewModel(),
 ) {
     val state = viewModel.state.collectAsState()
-
     Screen {
         Scaffold(
             topBar = {
