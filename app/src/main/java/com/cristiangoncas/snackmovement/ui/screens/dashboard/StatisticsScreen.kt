@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui.screens.notifications
+package com.cristiangoncas.snackmovement.ui.screens.dashboard
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -22,8 +22,8 @@ import com.cristiangoncas.snackmovement.ui.Screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NotificationsScreen(
-    viewModel: NotificationsViewModel = viewModel(),
+fun StatisticsScreen(
+    viewModel: DashboardViewModel = viewModel(),
 ) {
     val state = viewModel.state.collectAsState()
 
@@ -32,7 +32,7 @@ fun NotificationsScreen(
             topBar = {
                 TopAppBar(
                     title = {
-                        Text(text = stringResource(R.string.title_notifications))
+                        Text(text = stringResource(R.string.title_dashboard))
                     },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.surfaceVariant,
@@ -58,6 +58,6 @@ fun NotificationsScreen(
 
 @Preview
 @Composable
-fun NotificationsScreenPreview() {
-    NotificationsScreen()
+fun DashboardScreenPreview() {
+    StatisticsScreen()
 }

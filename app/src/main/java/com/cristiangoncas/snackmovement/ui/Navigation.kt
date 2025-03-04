@@ -29,11 +29,10 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.cristiangoncas.snackmovement.R
-import com.cristiangoncas.snackmovement.ui.screens.dashboard.DashboardScreen
+import com.cristiangoncas.snackmovement.ui.screens.dashboard.StatisticsScreen
 import com.cristiangoncas.snackmovement.ui.screens.exercisedetail.ExerciseDetailScreen
 import com.cristiangoncas.snackmovement.ui.screens.exercises.ExercisesScreen
 import com.cristiangoncas.snackmovement.ui.screens.home.HomeScreen
-import com.cristiangoncas.snackmovement.ui.screens.notifications.NotificationsScreen
 import kotlinx.serialization.Serializable
 
 @Composable
@@ -53,13 +52,8 @@ fun Navigation() {
         ),
         TopLevelRoute(
             name = stringResource(R.string.title_dashboard),
-            route = Dashboard,
+            route = Statistics,
             icon = painterResource(R.drawable.ic_dashboard_black_24dp),
-        ),
-        TopLevelRoute(
-            name = stringResource(R.string.title_notifications),
-            route = Notifications,
-            icon = painterResource(R.drawable.ic_notifications_black_24dp),
         ),
     )
 
@@ -122,11 +116,8 @@ fun Navigation() {
                 }
 
             }
-            composable<Dashboard> {
-                DashboardScreen()
-            }
-            composable<Notifications> {
-                NotificationsScreen()
+            composable<Statistics> {
+                StatisticsScreen()
             }
         }
     }
@@ -178,7 +169,5 @@ object Exercises
 object ExerciseDetail
 
 @Serializable
-object Dashboard
+object Statistics
 
-@Serializable
-object Notifications
