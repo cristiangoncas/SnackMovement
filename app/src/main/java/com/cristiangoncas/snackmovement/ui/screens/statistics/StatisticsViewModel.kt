@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui.screens.dashboard
+package com.cristiangoncas.snackmovement.ui.screens.statistics
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

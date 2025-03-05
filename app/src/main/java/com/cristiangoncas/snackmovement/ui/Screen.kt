@@ -9,6 +9,7 @@ import com.cristiangoncas.snackmovement.ui.theme.SnackMovementTheme
 
 @Composable
 fun Screen(content: @Composable () -> Unit) {
+
     SnackMovementTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),

@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui.screens.dashboard
+package com.cristiangoncas.snackmovement.ui.screens.statistics
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
