@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui.screens.dashboard
+package com.cristiangoncas.snackmovement.ui.screens.statistics
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -18,12 +18,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cristiangoncas.snackmovement.R
-import com.cristiangoncas.snackmovement.ui.Screen
+import com.cristiangoncas.snackmovement.ui.components.Screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DashboardScreen(
-    viewModel: DashboardViewModel = viewModel(),
+fun StatisticsScreen(
+    viewModel: StatisticsViewModel = viewModel(),
 ) {
     val state = viewModel.state.collectAsState()
     Screen {
@@ -31,7 +31,7 @@ fun DashboardScreen(
             topBar = {
                 TopAppBar(
                     title = {
-                        Text(text = stringResource(R.string.title_dashboard))
+                        Text(text = stringResource(R.string.title_statistics))
                     },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.surfaceVariant,
@@ -57,6 +57,6 @@ fun DashboardScreen(
 
 @Preview
 @Composable
-fun DashboardScreenPreview() {
-    DashboardScreen()
+fun StatisticsScreenPreview() {
+    StatisticsScreen()
 }

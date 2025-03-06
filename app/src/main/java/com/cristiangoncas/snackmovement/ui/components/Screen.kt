@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui
+package com.cristiangoncas.snackmovement.ui.components
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
@@ -9,6 +9,7 @@ import com.cristiangoncas.snackmovement.ui.theme.SnackMovementTheme
 
 @Composable
 fun Screen(content: @Composable () -> Unit) {
+
     SnackMovementTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
