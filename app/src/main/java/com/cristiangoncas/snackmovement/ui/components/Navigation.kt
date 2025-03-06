@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui
+package com.cristiangoncas.snackmovement.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -48,7 +48,6 @@ import com.cristiangoncas.snackmovement.ui.screens.exercisedetail.ExerciseDetail
 import com.cristiangoncas.snackmovement.ui.screens.exercises.ExercisesScreen
 import com.cristiangoncas.snackmovement.ui.screens.home.HomeScreen
 import com.cristiangoncas.snackmovement.ui.screens.statistics.StatisticsScreen
-import com.cristiangoncas.snackmovement.ui.screens.DrawerRoute
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 
@@ -131,7 +130,7 @@ fun Navigation() {
                 val navBackStackEntry = navController.currentBackStackEntryAsState()
                 val currentDestination = navBackStackEntry.value?.destination
 
-                if (currentDestination?.route != "${ExerciseDetail}/{exerciseId}") {
+                if (currentDestination?.route != "$ExerciseDetail/{exerciseId}") {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -172,11 +171,11 @@ fun Navigation() {
                 }
                 composable<Exercises> {
                     ExercisesScreen(viewModel()) { exerciseId ->
-                        navController.navigate("${ExerciseDetail}/$exerciseId")
+                        navController.navigate("$ExerciseDetail/$exerciseId")
                     }
                 }
                 composable(
-                    route = "${ExerciseDetail}/{exerciseId}",
+                    route = "$ExerciseDetail/{exerciseId}",
                     arguments = listOf(navArgument("exerciseId") { type = NavType.IntType })
                 ) { backStackEntry ->
                     val exerciseId = backStackEntry.arguments?.getInt("exerciseId")

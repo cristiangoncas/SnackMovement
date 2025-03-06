@@ -32,7 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cristiangoncas.snackmovement.R
-import com.cristiangoncas.snackmovement.ui.Screen
+import com.cristiangoncas.snackmovement.ui.components.Screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

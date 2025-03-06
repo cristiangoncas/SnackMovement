@@ -1,4 +1,4 @@
-package com.cristiangoncas.snackmovement.ui.screens
+package com.cristiangoncas.snackmovement.ui.components
 
 import kotlinx.serialization.Serializable
 
