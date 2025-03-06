@@ -4,7 +4,7 @@
     <string name="title_statistics">Statistics</string>
     <string name="your_favourite_exercises">Your favourite exercises</string>
     <string name="title_exercises">Exercises</string>
-    <string name="profile">Profile\n</string>
-    <string name="goals">Goals\n</string>
+    <string name="profile">Profile</string>
+    <string name="goals">Goals</string>
     <string name="settings">Settings</string>
 </resources>
